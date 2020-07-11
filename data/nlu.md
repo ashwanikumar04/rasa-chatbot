@@ -69,38 +69,25 @@
 - show me [chines]{"entity": "cuisine", "value": "chinese"} restaurants in the [New Delhi]{"entity": "location", "value": "Delhi"}
 - i am looking for an [indian](cuisine) spot called tadka
 - search for restaurants
-- [South Indian](cuisine)
-- [North Indian](cuisine)
-- [Italian](cuisine)
-- [Chinese]{"entity": "cuisine", "value": "chinese"}
-- [chinese](cuisine)
-- in [delhi](location)
 - I am looking for some restaurants in [Mumbai](location)
 - I am looking for [mexican indian fusion](cuisine)
 - please help me to find restaurants in [pune](location)
 - Please find me a restaurant in [bengaluru](location)
-- [mumbai](location)
 - show me restaurants
+- Please suggest some restaurants in [bengaluru](location)
 - can you book a table in [Aligarh](location) in a [moderate](price) price range with [Indian](cuisine) food for [2](people) people
 - please find me [chinese](cuisine) restaurant in [delhi](location)
 - can you find me a [chinese](cuisine) restaurant
-- [delhi](location)
 - please find me a restaurant in [ahmedabad](location)
 - please show me a few [italian](cuisine) restaurants in [bangalore](location)
 - show me [chinese](cuisine) restaurants in [Delhi](location) in [moderate](price) price range
 - find me some restaurants in [Pune](location)
-- [mexican](cuisine)
 - find me food in [Noida](location)
 - [biriyani]{"entity": "cuisine", "value": "south indian"}
 - under my [budget]{"entity": "price", "value": "moderate"}
 - show me restaurants with [medium price]{"entity": "price", "value": "moderate"} range in [baroda](location)
-- south [indian](cuisine)
 - I'm hungry. Looking for some good restaurants
-- [Mexican](cuisine)
-- [American](cuisine)
 - find me a restaurant
-- [chennai](location)
-- [bengaluru](location)
 - somethink like [biriyani]{"entity": "cuisine", "value": "south indian"}
 - Im hungry. Looking out for some good restaurants
 - show me some [italian](cuisine) cusine restaurants
@@ -131,11 +118,8 @@
 - looking for [North Indian](cuisine) restaurants in [Delhi](location) in [moderate](price) price range
 - get me [expensive](price) [North Indian](cuisine) restaurants in [Hyderabad](location)
 - get me [best]{"entity": "price", "value": "expensive"} restaurants for a [couple]{"entity": "people", "value": "2"}
-- [Asansol](location)
-- in [Bhopal](location)
 - any where in [Coimbatore](location)
 - [good ambience]{"entity": "price", "value": "expensive"} restaurant in [gaya](location)
-- [gaya](location)
 - Looking for restaurants in [mumbai](location)
 - show me some [chinese](cuisine) restaurants in [delhi](location)
 - [expensive](price)
@@ -143,7 +127,6 @@
 - I am looking for some [cheap]{"entity": "price", "value": "economic"} restaurants in [chennai](location)
 - looking for [french](cuisine) cuisine in [mumbai](location)
 - Can you please suggest the [beach side]{"entity": "price", "value": "expensive"} restaurants in [Chennai](location)
-- [Mexican](cuisine)
 
 ## intent:send_email
 - kindly send email to [xyz@gmail.com](emailid)
@@ -163,6 +146,27 @@
 - emailId is [deepak4ev@gmail.com](emailid)
 - email is [deepak4ev@gmail.com](emailid)
 - [deepak4ev@gmail.com](emailid)
+
+## intent::notify
+- [South Indian](cuisine)
+- [North Indian](cuisine)
+- [Italian](cuisine)
+- [Chinese]{"entity": "cuisine", "value": "chinese"}
+- [chinese](cuisine)
+- in [delhi](location)
+- [Mexican](cuisine)
+- [American](cuisine)
+- [Asansol](location)
+- [Mexican](cuisine)
+- [American](cuisine)
+- in [Bhopal](location)
+- [mumbai](location)
+- [delhi](location)
+- [chennai](location)
+- [bengaluru](location)
+- [mexican](cuisine)
+- [gaya](location)
+- [Kolkata](location)
 
 ## synonym:2
 - couple
@@ -226,6 +230,7 @@
 - higher budget
 - best
 - good ambience
+- beach side
 - more than Rs. 700
 - more than 700
 - min 700
@@ -235,7 +240,6 @@
 - high end
 - lavish
 - roof top
-- beach side
 
 ## synonym:moderate
 - budget

@@ -46,6 +46,11 @@ responses:
   - text: Please share the email.
   utter_ask_for_result_email:
   - text: Do you want the results in the emails?
+  - buttons:
+      - payload: yes
+        title: Yes
+      - payload: no
+        title: No
   utter_ask_howcanhelp:
   - text: how can I help you?
   utter_ask_location:
@@ -92,4 +97,4 @@ slots:
     - economic
     - moderate
     - expensive
-    - __other__
+

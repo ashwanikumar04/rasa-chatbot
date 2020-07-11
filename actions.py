@@ -2,7 +2,9 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import unicode_literals
 
+from rasa_sdk import Tracker
 from rasa_sdk import Action
+from rasa_sdk.forms import FormAction
 from rasa_sdk.events import SlotSet
 import zomatopy
 import json
@@ -113,3 +115,15 @@ class ActionValidateCuisine(Action):
             return [SlotSet('cuisine', None), SlotSet('is_valid_cuisine', False)]
 
         return [SlotSet('cuisine', cuisine.lower()), SlotSet('is_valid_cuisine', True)]
+
+# Reference:  https://blog.rasa.com/building-contextual-assistants-with-rasa-formaction/
+class RestaurantForm(FormAction):
+    def name(self):
+        return "restaurant_form"
+
+	@staticmethod
+    def required_slots(tracker: Tracker) -> List[Text]:
+        """A list of required slots that the form has to fill"""
+
+        return ["cuisine", "num_people", "outdoor_seating",
+                "preferences", "feedback"]
