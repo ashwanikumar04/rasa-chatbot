@@ -23,7 +23,11 @@ fh.close()
 cuisines_dict = {'maxican': 73, 'chinese': 25, 'american': 1,
                  'italian': 55,  'north indian': 50, 'south indian': 85}
 
-price_dict = {'economic': (0, 299), 'moderate': (300, 700), 'expensive': (701, 9999)}
+price_dict = {'economic': (0, 299), 'moderate': (
+    300, 700), 'expensive': (701, 9999)}
+
+config = {"user_key": "50aadfe48ced3c06244a29a7381ac7eb"}
+zomato = zomatopy.initialize_app(config)
 
 
 class ActionSearchRestaurants(Action):
@@ -31,28 +35,30 @@ class ActionSearchRestaurants(Action):
         return 'action_search_restaurants'
 
     def run(self, dispatcher, tracker, domain):
-        config = {"user_key": "50aadfe48ced3c06244a29a7381ac7eb"}
-        zomato = zomatopy.initialize_app(config)
         loc = tracker.get_slot('location')
         cuisine = tracker.get_slot('cuisine')
-        location_detail = zomato.get_location(loc, 1)
-        d1 = json.loads(location_detail)
-        lat = d1["location_suggestions"][0]["latitude"]
-        lon = d1["location_suggestions"][0]["longitude"]
-        results = zomato.restaurant_search(
-            "", lat, lon, str(cuisines_dict.get(cuisine)), 5)
-        d = json.loads(results)
-        responseList = []
-        if d['results_found'] == 0:
-            response = "no results"
+        price = tracker.get_slot('price')
+        restaurant_list = zomato.getTopRestaurants(
+            loc, str(cuisines_dict.get(cuisine)), price_dict[price])
+        if len(restaurant_list) == 0:
+            response = "Sorry, we were not able to find any restaurant with this criteria."
+            dispatcher.utter_message("-----"+response)
+            return [SlotSet('location', None), SlotSet('cuisine', None), SlotSet('price', None)]
         else:
-            # {restaurant_name} in {restaurant_address} has been rated {rating}.
-            # for restaurant in d['restaurants']:
-            #     restaurantDetails = "{0} in {1} has been rated {2}.".format(restaurant['restaurant']['name'], restaurant['restaurant']['location']['address'], restaurant['restaurant']['user_rating']['aggregate_rating'] )
-            #     responseList.append()
-            response = "result found"
-        dispatcher.utter_message("-----"+response)
-        return [SlotSet('location', loc)]
+            user_response_list = []
+            for restaurant in restaurant_list[:5]:
+                restaurant_details = '{0} in {1} has been rated {2}.'.format(
+                    restaurant['name'], restaurant['address'], restaurant['rating'])
+                user_response_list.append(restaurant_details)
+
+            email_body_list = []
+            for restaurant in restaurant_list:
+                restaurant_details = '{0} in {1} has been rated {2} with price for two as {3}.'.format(
+                    restaurant['name'], restaurant['address'], restaurant['rating'], restaurant["average_cost_for_two"])
+                email_body_list.append(restaurant_details)
+
+            dispatcher.utter_message("-----"+"\n".join(user_response_list))
+            return [SlotSet('location', loc), SlotSet('cuisine', cuisine), SlotSet('price', price), SlotSet('email_body', "\n".join(email_body_list))]
 
 
 class ActionSendEmail(Action):
@@ -65,16 +71,15 @@ class ActionSendEmail(Action):
         print('email', email)
         print('email_body', email_body)
         msg = EmailMessage()
-        msg['Subject'] = 'Top 5 restaurants'
-        msg['From'] = 'rasabot20@gmail.com'  # sender's email address
-        msg['To'] = email  # receiver's email address
+        msg['Subject'] = 'Top restaurant from Zomato'
+        msg['From'] = 'rasabot20@gmail.com'
+        msg['To'] = email
 
-        msg.set_content('test email from bot')
+        msg.set_content(email_body)
         with smtplib.SMTP_SSL('smtp.gmail.com', port) as smtp:
-            # replace with your email and password
             smtp.login('rasabot20@gmail.com', password)
             smtp.send_message(msg)
-        dispatcher.utter_message("email sent")
+        dispatcher.utter_message("Restaurant details have been sent.")
         return [SlotSet('emailid', email), SlotSet('email_body', None)]
 
 
@@ -103,7 +108,3 @@ class ActionValidateCuisine(Action):
             return [SlotSet('cuisine', None), SlotSet('is_valid_cuisine', False)]
 
         return [SlotSet('cuisine', cuisine.lower()), SlotSet('is_valid_cuisine', True)]
-
-
-
-
