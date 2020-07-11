@@ -9,6 +9,7 @@
 - good evening
 - hola
 - what's up
+- Hello
 
 ## intent:affirm
 - yes
@@ -44,6 +45,7 @@
 - see you later
 - see you
 - see ya
+- [moderate](price)
 
 ## intent:deny
 - no
@@ -133,6 +135,7 @@
 - any where in [Coimbatore](location)
 - [good ambience]{"entity": "price", "value": "expensive"} restaurant in [gaya](location)
 - [gaya](location)
+- Looking for restaurants in [mumbai](location)
 - [Chinese]{"entity": "cuisine", "value": "chinese"}
 
 ## intent:send_email
@@ -149,6 +152,7 @@
 - please send the email to [xyx@gmail.com](emailid)
 - my id is [xyz@gmail.com](emailid)
 - my email is [xyz@domain.com](emailid)
+- my emailid is [deepak4ev@gmail.com](emailid)
 
 ## synonym:2
 - couple
@@ -211,6 +215,7 @@
 - high budget
 - higher budget
 - best
+- good ambience
 - more than Rs. 700
 - more than 700
 - min 700
@@ -221,7 +226,6 @@
 - lavish
 - roof top
 - beach side
-- good ambience
 
 ## synonym:moderate
 - budget

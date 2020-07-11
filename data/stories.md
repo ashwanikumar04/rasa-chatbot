@@ -161,3 +161,28 @@
     - action_search_restaurants
     - slot{"location": null}
     - utter_goodbye
+
+## interactive_story_1
+* greet
+    - utter_greet
+* restaurant_search{"location": "mumbai"}
+    - slot{"location": "mumbai"}
+    - action_validate_city
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "chinese"}
+    - slot{"cuisine": "chinese"}
+    - action_validate_cuisine
+    - utter_ask_price
+* goodbye{"price": "moderate"}
+    - slot{"price": "moderate"}
+    - action_search_restaurants
+    - slot{"location": "mumbai"}
+    - utter_ask_for_result_email
+* affirm
+    - utter_ask_email
+* send_email{"emailid": "deepak4ev@gmail.com"}
+    - slot{"emailid": "deepak4ev@gmail.com"}
+    - action_send_email
+    - slot{"emailid": "deepak4ev@gmail.com"}
+    - slot{"email_body": null}
+    - utter_goodbye

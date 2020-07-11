@@ -1,16 +1,17 @@
 actions:
+- action_search_restaurants
+- action_send_email
+- action_validate_city
+- action_validate_cuisine
 - utter_ask_cuisine
 - utter_ask_email
 - utter_ask_for_result_email
 - utter_ask_howcanhelp
 - utter_ask_location
+- utter_ask_price
 - utter_default
 - utter_goodbye
 - utter_greet
-- action_validate_city
-- action_validate_cuisine
-- action_search_restaurants
-- action_send_email
 entities:
 - cuisine
 - emailid
@@ -18,12 +19,12 @@ entities:
 - people
 - price
 intents:
-- restaurant_search
+- goodbye
 - greet
 - affirm
-- goodbye
-- deny
+- restaurant_search
 - send_email
+- deny
 - stop
 responses:
   utter_ask_cuisine:
@@ -49,6 +50,15 @@ responses:
   - text: how can I help you?
   utter_ask_location:
   - text: In what location?
+  utter_ask_price:
+  - buttons:
+    - payload: economic
+      title: less than 300 for 2 people
+    - payload: moderate
+      title: 300 to 700 for 2 people
+    - payload: expensive
+      title: more than 700 for 2 people
+    text: what price range are you looking for?
   utter_default:
   - text: i cannot understand
   utter_goodbye:
@@ -68,3 +78,16 @@ slots:
     type: text
   location:
     type: text
+  price:
+    type: categorical
+    values:
+      - economic 
+      - moderate
+      - expensive
+  email_body:
+    type: text
+  is_valid_cuisine:
+    type: bool
+  is_valid_city:
+    type: bool
+

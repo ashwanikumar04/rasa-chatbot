@@ -23,6 +23,8 @@ fh.close()
 cuisines_dict = {'maxican': 73, 'chinese': 25, 'american': 1,
                  'italian': 55,  'north indian': 50, 'south indian': 85}
 
+price_dict = {'economic': (0, 299), 'moderate': (300, 700), 'expensive': (701, 9999)}
+
 
 class ActionSearchRestaurants(Action):
     def name(self):
@@ -73,7 +75,7 @@ class ActionSendEmail(Action):
             smtp.login('rasabot20@gmail.com', password)
             smtp.send_message(msg)
         dispatcher.utter_message("email sent")
-        return [SlotSet('email', email), SlotSet('top_5_restaurants', None)]
+        return [SlotSet('emailid', email), SlotSet('email_body', None)]
 
 
 class ActionValidateCity(Action):
@@ -101,5 +103,7 @@ class ActionValidateCuisine(Action):
             return [SlotSet('cuisine', None), SlotSet('is_valid_cuisine', False)]
 
         return [SlotSet('cuisine', cuisine.lower()), SlotSet('is_valid_cuisine', True)]
+
+
 
 
