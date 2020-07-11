@@ -24,10 +24,8 @@
 - sounds really good
 - thank you
 - thanks
-- indeed
 - of course
 - that sounds good
-- correct
 - yea
 - sounds correct
 - yea, please do
@@ -65,13 +63,13 @@
 - I am looking for some restaurants in [Delhi](location).
 - I am looking for some restaurants in [Bangalore](location)
 - show me [chinese](cuisine) restaurants
-- show me [chines](cuisine:chinese) restaurants in the [New Delhi](location:Delhi)
+- show me [chines]{"entity": "cuisine", "value": "chinese"} restaurants in the [New Delhi]{"entity": "location", "value": "Delhi"}
 - i am looking for an [indian](cuisine) spot called tadka
 - search for restaurants
 - [South Indian](cuisine)
 - [North Indian](cuisine)
 - [Italian](cuisine)
-- [Chinese](cuisine:chinese)
+- [Chinese]{"entity": "cuisine", "value": "chinese"}
 - [chinese](cuisine)
 - in [delhi](location)
 - I am looking for some restaurants in [Mumbai](location)
@@ -79,21 +77,18 @@
 - please help me to find restaurants in [pune](location)
 - Please find me a restaurant in [bengaluru](location)
 - [mumbai](location)
-- [Chinese](cuisine:chinese)
 - show me restaurants
-- [mumbai](location)
-- [Italian](cuisine)
-- can you book a table in [Aligarh](location) in a [moderate]{"entity": "price", "value": "moderate"} price range with [Indian](cuisine) food for [2]{"entity": "people", "value": "2"} people
+- can you book a table in [Aligarh](location) in a [moderate](price) price range with [Indian](cuisine) food for [2](people) people
 - please find me [chinese](cuisine) restaurant in [delhi](location)
 - can you find me a [chinese](cuisine) restaurant
 - [delhi](location)
 - please find me a restaurant in [ahmedabad](location)
 - please show me a few [italian](cuisine) restaurants in [bangalore](location)
-- show me [chinese](cuisine) restaurants in [Delhi](location) in [moderate]{"entity": "price", "value": "moderate"} price range
+- show me [chinese](cuisine) restaurants in [Delhi](location) in [moderate](price) price range
 - find me some restaurants in [Pune](location)
 - [mexican](cuisine)
 - find me food in [Noida](location)
-- [biriyani](cuisine:south indian)
+- [biriyani]{"entity": "cuisine", "value": "south indian"}
 - under my [budget]{"entity": "price", "value": "moderate"}
 - show me restaurants with [medium price]{"entity": "price", "value": "moderate"} range in [baroda](location)
 - south [indian](cuisine)
@@ -103,7 +98,7 @@
 - find me a restaurant
 - [chennai](location)
 - [bengaluru](location)
-- somethink like [biriyani](cuisine:south indian)
+- somethink like [biriyani]{"entity": "cuisine", "value": "south indian"}
 - Im hungry. Looking out for some good restaurants
 - show me some [italian](cuisine) cusine restaurants
 - [high budget]{"entity": "price", "value": "expensive"} restaurants
@@ -130,9 +125,15 @@
 - [lower cost]{"entity": "price", "value": "economic"} restaurants
 - [economical]{"entity": "price", "value": "economic"} restaurants
 - [low budget]{"entity": "price", "value": "economic"} restaurants
-- looking for [North Indian](cuisine) restaurants in [Delhi](location) in [moderate]{"entity": "price", "value": "moderate"} price range
-- get me [expensive]{"entity": "price", "value": "expensive"} [North Indian](cuisine) restaurants in [Hyderabad](location)
+- looking for [North Indian](cuisine) restaurants in [Delhi](location) in [moderate](price) price range
+- get me [expensive](price) [North Indian](cuisine) restaurants in [Hyderabad](location)
 - get me [best]{"entity": "price", "value": "expensive"} restaurants for a [couple]{"entity": "people", "value": "2"}
+- [Asansol](location)
+- in [Bhopal](location)
+- any where in [Coimbatore](location)
+- [good ambience]{"entity": "price", "value": "expensive"} restaurant in [gaya](location)
+- [gaya](location)
+- [Chinese]{"entity": "cuisine", "value": "chinese"}
 
 ## intent:send_email
 - kindly send email to [xyz@gmail.com](emailid)
@@ -149,49 +150,13 @@
 - my id is [xyz@gmail.com](emailid)
 - my email is [xyz@domain.com](emailid)
 
-## synonym:economic
-- lesser than Rs. 300
-- less than 300
-- max 300
-- cheap
-- inexpensive
-- lower than 300
-- lesser than 300
-- <300
-- lower cost
-- cheaper
-- low cost
-- low budget
-- lower budget
+## synonym:2
+- couple
+- two
 
-## synonym:moderate
-- Rs. 300 to 700
-- 300 to 700
-- budget
-- medium price
-- mid
-- mid range
-- 300-700
-- moderate
-- medium cost
-- average
-- mid level
-
-## synonym:expensive
-- more than Rs. 700
-- more than 700
-- min 700
-- expensive
-- higher than 700
-- >700
-- high end
-- high budget
-- higher budget
-- lavish
-- best
-- roof top
-- beach side
-- good ambience
+## synonym:Chennai
+- Madras
+- Chennaii
 
 ## synonym:Delhi
 - New Delhi
@@ -200,53 +165,93 @@
 - Dilli
 - NDLS
 
+## synonym:Kolkata
+- Kolkatta
+- calcutta
+
+## synonym:Thiruvananthapuram
+- Trivandrum
+
+## synonym:Vijayawada
+- Bezawada
+
+## synonym:Visakhapatnam
+- Vizag
+- Visakha
+
 ## synonym:bangalore
 - bengaluru
 - bglr
 - banglore
 - blr
 
-## synonym:mumbai
-- Mumbaii
-- bambai
-- Bombay
-
-## synonym:Vijayawada
-- Bezawada
-
-
-## synonym:Kolkata
-- Kolkatta
-- calcutta
-
-## synonym:Chennai
-- Madras
-- Chennaii
-
-## synonym:Thiruvananthapuram
-- Trivandrum
-
-## synonym:Visakhapatnam
-- Vizag
-- Visakha
-
 ## synonym:chinese
 - chines
 - Chinese
 - Chines
+
+## synonym:economic
+- Lesser than Rs. 300
+- lesser than Rs. 300
+- less than 300
+- max 300
+- cheap
+- inexpensive
+- lower than 300
+- lower cost
+- economical
+- low budget
+- lesser than 300
+- <300
+- cheaper
+- low cost
+- lower budget
+
+## synonym:expensive
+- high budget
+- higher budget
+- best
+- more than Rs. 700
+- more than 700
+- min 700
+- expensive
+- higher than 700
+- >700
+- high end
+- lavish
+- roof top
+- beach side
+- good ambience
+
+## synonym:moderate
+- budget
+- medium price
+- medium cost
+- average
+- mid level
+- 300 to 700
+- Rs. 300 to 700
+- mid
+- mid range
+- 300-700
+- moderate
+
+## synonym:mumbai
+- Mumbaii
+- bambai
+- Bombay
 
 ## synonym:north indian
 - northies
 - punjabi
 - gujrati
 - rajasthani
-  
 
 ## synonym:south indian
+- biriyani
 - southies
 - spicy
 - biryani
-- biriyani
 
 ## synonym:vegetarian
 - veggie
@@ -254,15 +259,15 @@
 - vegan
 - jain restaurant
 
-## synonym:2
-- two
+## regex:email
+- (\w+[.|\w])*@(\w+[.])*\w+
 
 ## regex:greet
 - hey[^\s]*
 - hi[^\s]*
 
-## regex:email
-- (\w+[.|\w])*@(\w+[.])*\w+
-
 ## lookup:cuisine
-   data/cuisine.txt
+  data/cuisine.txt
+
+## lookup:location
+  data/cities.txt

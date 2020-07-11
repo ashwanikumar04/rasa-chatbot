@@ -15,10 +15,14 @@ port = 465  # For SSL
 password = "rasa@2020"
 
 cities = set()
-fh = open('cities.txt')
+fh = open('data/cities.txt')
 for line in fh:
-    cities(line.strip().lower())
+    cities.add(line.strip().lower())
 fh.close()
+
+cuisines_dict = {'maxican': 73, 'chinese': 25, 'american': 1,
+                 'italian': 55,  'north indian': 50, 'south indian': 85}
+
 
 class ActionSearchRestaurants(Action):
     def name(self):
@@ -33,31 +37,18 @@ class ActionSearchRestaurants(Action):
         d1 = json.loads(location_detail)
         lat = d1["location_suggestions"][0]["latitude"]
         lon = d1["location_suggestions"][0]["longitude"]
-        cuisines_dict = {'bakery': 5, 'chinese': 25, 'cafe': 30,
-                         'italian': 55, 'biryani': 7, 'north indian': 50, 'south indian': 85}
         results = zomato.restaurant_search(
             "", lat, lon, str(cuisines_dict.get(cuisine)), 5)
         d = json.loads(results)
-        response = ""
+        responseList = []
         if d['results_found'] == 0:
             response = "no results"
         else:
-            for restaurant in d['restaurants']:
-                response = response + "Found " + \
-                    restaurant['restaurant']['name'] + " in " + \
-                    restaurant['restaurant']['location']['address']+"\n"
-
-        # msg = EmailMessage()
-        # msg['Subject'] = 'Days Off Request'
-        # msg['From'] = 'rasabot20@gmail.com'  # sender's email address
-        # msg['To'] = 'ashwanikumar04@gmail.com'  # receiver's email address
-
-        # msg.set_content('Hi,\nOur member {} has submitted a days off request starting from {} to {} (if both dates are same, its a one day leave request). The reason for the leave request is \"{}\" currently \"{}\". Please acknowledge this request. \nYour\'s sincerely,\nYour-bot')
-
-        # with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-        #     # replace with your email and password
-        #     smtp.login('rasabot20@gmail.com', password)
-        #     smtp.send_message(msg)
+            # {restaurant_name} in {restaurant_address} has been rated {rating}.
+            # for restaurant in d['restaurants']:
+            #     restaurantDetails = "{0} in {1} has been rated {2}.".format(restaurant['restaurant']['name'], restaurant['restaurant']['location']['address'], restaurant['restaurant']['user_rating']['aggregate_rating'] )
+            #     responseList.append()
+            response = "result found"
         dispatcher.utter_message("-----"+response)
         return [SlotSet('location', loc)]
 
@@ -67,9 +58,10 @@ class ActionSendEmail(Action):
         return 'action_send_email'
 
     def run(self, dispatcher, tracker, domain):
-        email = tracker.get_slot('email')
-        top_5_restaurants = tracker.get_slot('top_5_restaurants')
+        email = tracker.get_slot('emailid')
+        email_body = tracker.get_slot('email_body')
         print('email', email)
+        print('email_body', email_body)
         msg = EmailMessage()
         msg['Subject'] = 'Top 5 restaurants'
         msg['From'] = 'rasabot20@gmail.com'  # sender's email address
@@ -82,3 +74,32 @@ class ActionSendEmail(Action):
             smtp.send_message(msg)
         dispatcher.utter_message("email sent")
         return [SlotSet('email', email), SlotSet('top_5_restaurants', None)]
+
+
+class ActionValidateCity(Action):
+    def name(self):
+        return 'action_validate_city'
+
+    def run(self, dispatcher, tracker, domain):
+        loc = tracker.get_slot('location')
+        if(loc.lower() not in cities):
+            dispatcher.utter_message("We do not operate in that area yet.")
+            return [SlotSet('location', None), SlotSet('is_valid_location', False)]
+
+        return [SlotSet('location', loc.lower()), SlotSet('is_valid_location', True)]
+
+
+class ActionValidateCuisine(Action):
+    def name(self):
+        return 'action_validate_cuisine'
+
+    def run(self, dispatcher, tracker, domain):
+        cuisine = tracker.get_slot('cuisine')
+        if(cuisine.lower() not in cuisines_dict):
+            dispatcher.utter_message(
+                "The selected cuisine is not valid. Please select a valid cuisine")
+            return [SlotSet('cuisine', None), SlotSet('is_valid_cuisine', False)]
+
+        return [SlotSet('cuisine', cuisine.lower()), SlotSet('is_valid_cuisine', True)]
+
+
