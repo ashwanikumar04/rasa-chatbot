@@ -104,17 +104,6 @@
 - find out [american](cuisine) cuisine in [mumbai](location)
 - search for [Mexican](cuisine) cuisine in [mumbai](location)
 - looking for [Italian](cuisine) restaurant in [Varanasi](location)
-- [Lesser than Rs. 300]{"entity": "price", "value": "economic"}
-- [lesser than Rs. 300]{"entity": "price", "value": "economic"}
-- [less than 300]{"entity": "price", "value": "economic"}
-- [max 300]{"entity": "price", "value": "economic"}
-- [cheap]{"entity": "price", "value": "economic"} restaurants
-- [cheap]{"entity": "price", "value": "economic"} punjabi(cuisine) restaurants
-- [inexpensive]{"entity": "price", "value": "economic"} restaurants
-- [lower than 300]{"entity": "price", "value": "economic"}
-- [lower cost]{"entity": "price", "value": "economic"} restaurants
-- [economical]{"entity": "price", "value": "economic"} restaurants
-- [low budget]{"entity": "price", "value": "economic"} restaurants
 - looking for [North Indian](cuisine) restaurants in [Delhi](location) in [moderate](price) price range
 - get me [expensive](price) [North Indian](cuisine) restaurants in [Hyderabad](location)
 - get me [best]{"entity": "price", "value": "expensive"} restaurants for a [couple]{"entity": "people", "value": "2"}
@@ -122,11 +111,11 @@
 - [good ambience]{"entity": "price", "value": "expensive"} restaurant in [gaya](location)
 - Looking for restaurants in [mumbai](location)
 - show me some [chinese](cuisine) restaurants in [delhi](location)
-- [expensive](price)
 - get me some [expensive](price) restaurants in [american](cuisine) style in [pune](location)
 - I am looking for some [cheap]{"entity": "price", "value": "economic"} restaurants in [chennai](location)
 - looking for [french](cuisine) cuisine in [mumbai](location)
 - Can you please suggest the [beach side]{"entity": "price", "value": "expensive"} restaurants in [Chennai](location)
+- find me [expensive](price) [chineese](cuisine) restaurant
 
 ## intent:send_email
 - kindly send email to [xyz@gmail.com](emailid)
@@ -142,12 +131,12 @@
 - please send the email to [xyx@gmail.com](emailid)
 - my id is [xyz@gmail.com](emailid)
 - my email is [xyz@domain.com](emailid)
-- my emailid is [deepak4ev@gmail.com](emailid)
+- my email id is [deepak4ev@gmail.com](emailid)
 - emailId is [deepak4ev@gmail.com](emailid)
 - email is [deepak4ev@gmail.com](emailid)
 - [deepak4ev@gmail.com](emailid)
 
-## intent::notify
+## intent:notify
 - [South Indian](cuisine)
 - [North Indian](cuisine)
 - [Italian](cuisine)
@@ -157,8 +146,6 @@
 - [Mexican](cuisine)
 - [American](cuisine)
 - [Asansol](location)
-- [Mexican](cuisine)
-- [American](cuisine)
 - in [Bhopal](location)
 - [mumbai](location)
 - [delhi](location)
@@ -167,6 +154,24 @@
 - [mexican](cuisine)
 - [gaya](location)
 - [Kolkata](location)
+- [Lesser than Rs. 300]{"entity": "price", "value": "economic"}
+- [lesser than Rs. 300]{"entity": "price", "value": "economic"}
+- [less than 300]{"entity": "price", "value": "economic"}
+- [max 300]{"entity": "price", "value": "economic"}
+- [cheap]{"entity": "price", "value": "economic"} restaurants
+- [cheap]{"entity": "price", "value": "economic"} punjabi(cuisine) restaurants
+- [inexpensive]{"entity": "price", "value": "economic"} restaurants
+- [lower than 300]{"entity": "price", "value": "economic"}
+- [lower cost]{"entity": "price", "value": "economic"} restaurants
+- [economical]{"entity": "price", "value": "economic"} restaurants
+- [low budget]{"entity": "price", "value": "economic"} restaurants
+- [expensive](price)
+- [300-700]{"entity": "price", "value": "moderate"}
+- [Less than 300]{"entity": "price", "value": "economic"}
+- Around [200]{"entity": "price", "value": "economic"}
+- Approx [100]{"entity": "price", "value": "economic"}
+- Around [800]{"entity": "price", "value": "expensive"}
+- [gaya](location)
 
 ## synonym:2
 - couple
@@ -207,18 +212,22 @@
 - chines
 - Chinese
 - Chines
-
+- chineese
+  
 ## synonym:economic
+- cheap
 - Lesser than Rs. 300
 - lesser than Rs. 300
 - less than 300
 - max 300
-- cheap
 - inexpensive
 - lower than 300
 - lower cost
 - economical
 - low budget
+- Less than 300
+- 200
+- 100
 - lesser than 300
 - <300
 - cheaper
@@ -231,6 +240,7 @@
 - best
 - good ambience
 - beach side
+- 800
 - more than Rs. 700
 - more than 700
 - min 700
@@ -248,10 +258,10 @@
 - average
 - mid level
 - 300 to 700
+- 300-700
 - Rs. 300 to 700
 - mid
 - mid range
-- 300-700
 - moderate
 
 ## synonym:mumbai
@@ -265,6 +275,9 @@
 - gujrati
 - rajasthani
 
+## synonym:puna
+- Pune
+
 ## synonym:south indian
 - biriyani
 - southies
@@ -277,12 +290,21 @@
 - vegan
 - jain restaurant
 
+## regex:economic
+- ^([0-9]|[1-8][0-9]|9[0-9]|1[0-9]{2}|2[0-8][0-9]|29[0-9])$
+
 ## regex:email
 - (\w+[.|\w])*@(\w+[.])*\w+
+
+## regex:expensive
+- ^(70[1-9]|7[1-9][0-9]|[89][0-9]{2}|[1-8][0-9]{3}|9[0-8][0-9]{2}|99[0-8][0-9]|999[0-9])$
 
 ## regex:greet
 - hey[^\s]*
 - hi[^\s]*
+
+## regex:moderate
+- ^([3-6][0-9]{2}|700)$
 
 ## lookup:cuisine
   data/cuisine.txt

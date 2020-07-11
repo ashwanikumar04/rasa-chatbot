@@ -9,3 +9,6 @@ pip install rasa[spacy]
 python -m spacy download en_core_web_md
 python -m spacy link en_core_web_md en
 ```
+
+
+Used http://gamon.webfactional.com/regexnumericrangegenerator/ to generate range regex

@@ -12,6 +12,8 @@ actions:
 - utter_default
 - utter_goodbye
 - utter_greet
+- utter_wrong_cuisine
+- utter_wrong_location
 entities:
 - cuisine
 - emailid
@@ -19,13 +21,15 @@ entities:
 - people
 - price
 intents:
-- greet
+- notify
 - restaurant_search
+- greet
 - send_email
 - goodbye
 - affirm
 - deny
 - stop
+- out_of_scope
 responses:
   utter_ask_cuisine:
   - buttons:
@@ -45,12 +49,12 @@ responses:
   utter_ask_email:
   - text: Please share the email.
   utter_ask_for_result_email:
-  - text: Do you want the results in the emails?
   - buttons:
-      - payload: yes
-        title: Yes
-      - payload: no
-        title: No
+    - payload: yes
+      title: Yes
+    - payload: no
+      title: No
+    text: Do you want the results in the emails?
   utter_ask_howcanhelp:
   - text: how can I help you?
   utter_ask_location:
@@ -73,6 +77,10 @@ responses:
   - text: hey there! How may i help you
   - text: Hi, How can I help you!
   - text: Hey, How is it going. How May I help you Today
+  utter_wrong_cuisine:
+  - text: This cuisine is not supported, please try again
+  utter_wrong_location:
+  - text: We do not operate in that area yet.
 session_config:
   carry_over_slots_to_new_session: true
   session_expiration_time: 60
@@ -97,4 +105,4 @@ slots:
     - economic
     - moderate
     - expensive
-
+    - __other__

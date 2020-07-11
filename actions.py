@@ -1,10 +1,8 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import unicode_literals
-
 from rasa_sdk import Tracker
 from rasa_sdk import Action
-from rasa_sdk.forms import FormAction
 from rasa_sdk.events import SlotSet
 import zomatopy
 import json
@@ -22,7 +20,7 @@ for line in fh:
     cities.add(line.strip().lower())
 fh.close()
 
-cuisines_dict = {'maxican': 73, 'chinese': 25, 'american': 1,
+cuisines_dict = {'mexican': 73, 'chinese': 25, 'american': 1,
                  'italian': 55,  'north indian': 50, 'south indian': 85}
 
 price_dict = {'economic': (0, 299), 'moderate': (
@@ -30,6 +28,7 @@ price_dict = {'economic': (0, 299), 'moderate': (
 
 config = {"user_key": "50aadfe48ced3c06244a29a7381ac7eb"}
 zomato = zomatopy.initialize_app(config)
+
 
 class ActionSearchRestaurants(Action):
     def name(self):
@@ -44,7 +43,8 @@ class ActionSearchRestaurants(Action):
             restaurant_list = zomato.getTopRestaurants(
                 loc, str(cuisines_dict.get(cuisine)), price_dict[price])
         except:
-            dispatcher.utter_message("Sorry, we were not able to find the restaurants. Please try again")
+            dispatcher.utter_message(
+                "Sorry, we were not able to find the restaurants. Please try again")
             return [SlotSet('location', None), SlotSet('cuisine', None), SlotSet('price', None)]
 
         if len(restaurant_list) == 0:
@@ -109,21 +109,10 @@ class ActionValidateCuisine(Action):
 
     def run(self, dispatcher, tracker, domain):
         cuisine = tracker.get_slot('cuisine')
+        print("Checking cuisine: ", cuisine)
         if(cuisine.lower() not in cuisines_dict):
             dispatcher.utter_message(
                 "The selected cuisine is not valid. Please select a valid cuisine")
             return [SlotSet('cuisine', None), SlotSet('is_valid_cuisine', False)]
 
         return [SlotSet('cuisine', cuisine.lower()), SlotSet('is_valid_cuisine', True)]
-
-# Reference:  https://blog.rasa.com/building-contextual-assistants-with-rasa-formaction/
-class RestaurantForm(FormAction):
-    def name(self):
-        return "restaurant_form"
-
-	@staticmethod
-    def required_slots(tracker: Tracker) -> List[Text]:
-        """A list of required slots that the form has to fill"""
-
-        return ["cuisine", "num_people", "outdoor_seating",
-                "preferences", "feedback"]
