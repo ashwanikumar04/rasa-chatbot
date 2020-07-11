@@ -29,7 +29,6 @@ price_dict = {'economic': (0, 299), 'moderate': (
 config = {"user_key": "50aadfe48ced3c06244a29a7381ac7eb"}
 zomato = zomatopy.initialize_app(config)
 
-
 class ActionSearchRestaurants(Action):
     def name(self):
         return 'action_search_restaurants'
@@ -38,8 +37,14 @@ class ActionSearchRestaurants(Action):
         loc = tracker.get_slot('location')
         cuisine = tracker.get_slot('cuisine')
         price = tracker.get_slot('price')
-        restaurant_list = zomato.getTopRestaurants(
-            loc, str(cuisines_dict.get(cuisine)), price_dict[price])
+        restaurant_list = []
+        try:
+            restaurant_list = zomato.getTopRestaurants(
+                loc, str(cuisines_dict.get(cuisine)), price_dict[price])
+        except:
+            dispatcher.utter_message("Sorry, we were not able to find the restaurants. Please try again")
+            return [SlotSet('location', None), SlotSet('cuisine', None), SlotSet('price', None)]
+
         if len(restaurant_list) == 0:
             response = "Sorry, we were not able to find any restaurant with this criteria."
             dispatcher.utter_message("-----"+response)
