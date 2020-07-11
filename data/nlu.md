@@ -1,13 +1,13 @@
 ## intent:greet
+- hi
 - hey
+- hello
 - howdy
 - hey there
-- hello
-- hi
 - good morning
+- good afternoon
 - good evening
 - dear sir
-- hello
 
 ## intent:affirm
 - yes
@@ -21,6 +21,7 @@
 - correct
 - great choice
 - sounds really good
+- thank you
 - thanks
 - indeed
 - of course
@@ -38,6 +39,8 @@
 - have a good one
 - see you around
 - see you later
+- see you
+- see ya
 
 ## intent:deny
 - no
@@ -46,6 +49,7 @@
 - don't like that
 - no way
 - not really
+- nope
 
 ## intent:mood_great
 - perfect
@@ -56,6 +60,7 @@
 - I am feeling very good
 - I am great
 - I'm good
+- not bad
 
 ## intent:mood_unhappy
 - sad
@@ -108,7 +113,6 @@
 - [delhi](location)
 - please find me a restaurant in [ahmedabad](location)
 - please show me a few [italian](cuisine) restaurants in [bangalore](location)
-
 - show me [chinese](cuisine) restaurants in [Delhi](location) in [moderate](price:300-700) price range
 - find me some restaurants in [Pune](location)
 - [mexican](cuisine)
@@ -286,7 +290,6 @@
 - bambai
 - bombay
 - Bombay
-- New bombay
 
 ## synonym:north indian
 - northies
@@ -325,3 +328,6 @@
 
 ## regex:pincode
 - [0-9]{6}
+
+## regex:email
+- (\w+[.|\w])*@(\w+[.])*\w+
