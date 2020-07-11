@@ -10,6 +10,7 @@
 - hola
 - what's up
 - Hello
+- hi there
 
 ## intent:affirm
 - yes
@@ -136,7 +137,13 @@
 - [good ambience]{"entity": "price", "value": "expensive"} restaurant in [gaya](location)
 - [gaya](location)
 - Looking for restaurants in [mumbai](location)
-- [Chinese]{"entity": "cuisine", "value": "chinese"}
+- show me some [chinese](cuisine) restaurants in [delhi](location)
+- [expensive](price)
+- get me some [expensive](price) restaurants in [american](cuisine) style in [pune](location)
+- I am looking for some [cheap]{"entity": "price", "value": "economic"} restaurants in [chennai](location)
+- looking for [french](cuisine) cuisine in [mumbai](location)
+- Can you please suggest the [beach side]{"entity": "price", "value": "expensive"} restaurants in [Chennai](location)
+- [Mexican](cuisine)
 
 ## intent:send_email
 - kindly send email to [xyz@gmail.com](emailid)
@@ -153,6 +160,9 @@
 - my id is [xyz@gmail.com](emailid)
 - my email is [xyz@domain.com](emailid)
 - my emailid is [deepak4ev@gmail.com](emailid)
+- emailId is [deepak4ev@gmail.com](emailid)
+- email is [deepak4ev@gmail.com](emailid)
+- [deepak4ev@gmail.com](emailid)
 
 ## synonym:2
 - couple

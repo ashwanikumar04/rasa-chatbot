@@ -19,11 +19,11 @@ entities:
 - people
 - price
 intents:
-- goodbye
 - greet
-- affirm
 - restaurant_search
 - send_email
+- goodbye
+- affirm
 - deny
 - stop
 responses:
@@ -74,20 +74,22 @@ session_config:
 slots:
   cuisine:
     type: text
+  email_body:
+    type: text
   emailid:
     type: text
+  is_valid_city:
+    type: bool
+  is_valid_cuisine:
+    type: bool
+  is_valid_location:
+    type: bool
   location:
     type: text
   price:
     type: categorical
     values:
-      - economic 
-      - moderate
-      - expensive
-  email_body:
-    type: text
-  is_valid_cuisine:
-    type: bool
-  is_valid_city:
-    type: bool
-
+    - economic
+    - moderate
+    - expensive
+    - __other__
