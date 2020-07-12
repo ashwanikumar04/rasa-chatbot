@@ -116,6 +116,7 @@
 - looking for [french](cuisine) cuisine in [mumbai](location)
 - Can you please suggest the [beach side]{"entity": "price", "value": "expensive"} restaurants in [Chennai](location)
 - find me [expensive](price) [chineese](cuisine) restaurant
+- Please help me to find some good restaurants
 
 ## intent:send_email
 - kindly send email to [xyz@gmail.com](emailid)
@@ -135,6 +136,7 @@
 - emailId is [deepak4ev@gmail.com](emailid)
 - email is [deepak4ev@gmail.com](emailid)
 - [deepak4ev@gmail.com](emailid)
+- my emailid is [deepak4ev@gmail.com](emailid)
 
 ## intent:notify
 - [South Indian](cuisine)
@@ -171,7 +173,9 @@
 - Around [200]{"entity": "price", "value": "economic"}
 - Approx [100]{"entity": "price", "value": "economic"}
 - Around [800]{"entity": "price", "value": "expensive"}
-- [gaya](location)
+- [Bangalore](location)
+- [Italian](cuisine)
+- [expensive](price)
 
 ## synonym:2
 - couple
@@ -213,7 +217,7 @@
 - Chinese
 - Chines
 - chineese
-  
+
 ## synonym:economic
 - cheap
 - Lesser than Rs. 300
