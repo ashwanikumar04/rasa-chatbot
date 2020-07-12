@@ -18,6 +18,7 @@ actions:
 - utter_greet
 - utter_wrong_cuisine
 - utter_wrong_location
+- utter_wrong_price
 entities:
 - cuisine
 - emailid
@@ -25,12 +26,12 @@ entities:
 - people
 - price
 intents:
-- notify
 - restaurant_search
+- affirm
+- notify
+- send_email
 - greet
 - deny
-- send_email
-- affirm
 - goodbye
 - stop
 - out_of_scope
@@ -82,9 +83,11 @@ responses:
   - text: Hi, How can I help you!
   - text: Hey, How is it going. How May I help you Today
   utter_wrong_cuisine:
-  - text: This cuisine is not supported, please try again
+  - text: This cuisine is not supported, please try again.
   utter_wrong_location:
-  - text: We do not operate in that area yet.
+    - text: We do not operate in that area yet.
+  utter_wrong_email:
+  - text: The email is not valid, please provide valid email id.
 session_config:
   carry_over_slots_to_new_session: true
   session_expiration_time: 60

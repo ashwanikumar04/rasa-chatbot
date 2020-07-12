@@ -161,7 +161,7 @@
 - Suggest some [french](cuisine) restaurants in [Bhopal](location)
 - Suggest some good restaurants in [Munnar](location)
 - Oh Sorry, in [Rajkot](location)
-- I am hungary and looking for restaurantt suggestions in [Madras]{"entity": "location", "value": "Chennai"}
+- I am hungry and looking for restaurant suggestions in [Madras]{"entity": "location", "value": "Chennai"}
 - Looking for [american](cuisine) restaurant in [Asansol](location)
 - Looking for good restaurants
 - within range [300 to 700]{"entity": "price", "value": "moderate"}
@@ -173,6 +173,9 @@
 - good restaurants in [Solapur](location) with budget of [300-700]{"entity": "price", "value": "moderate"}
 - Hi looking for restaurants in [Jammu](location)
 - [within 300]{"entity": "price", "value": "economic"}
+- find me some restaurants [within 1000]{"entity": "price", "value": "within 1000"}
+- suggest some restaurants [<1000]{"entity": "price", "value": "<1000"}
+- [moderate](price)
 
 ## intent:send_email
 - kindly send email to [xyz@gmail.com](emailid)
@@ -209,6 +212,7 @@
 - oh sorry, here it is [ashwanikumar04@gmail.com](emailid)
 - yes send it to [deepak.4ev@gmail.com](emailid)
 - send it too [ashwani.kumar04@gmail.com](emailid)
+- send it to [ashwanikumar04@gmail.com](emailid)
 
 ## intent:notify
 - [South Indian](cuisine)
@@ -273,7 +277,8 @@
 - I will prefer [chines]{"entity": "cuisine", "value": "chinese"}
 - [>700]{"entity": "price", "value": "expensive"}
 - [Nellore](location)
-- [Mexican](cuisine)
+- [Goa](location)
+- [Italian](cuisine)
 
 ## synonym:2
 - couple
@@ -320,6 +325,7 @@
 - cheap
 - low budget
 - less than 300
+- within 300
 - Lesser than Rs. 300
 - lesser than Rs. 300
 - max 300

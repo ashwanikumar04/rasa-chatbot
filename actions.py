@@ -131,8 +131,6 @@ class ActionValidateEmail(Action):
         if(email and email_pattern.match(email)):
             return [SlotSet('emailid', email), SlotSet('is_valid_email', True)]
         else:
-            dispatcher.utter_message(
-                "The email is not valid, please enter valid email id.")
             return [SlotSet('emailid', None), SlotSet('is_valid_email', False)]
 
 
@@ -144,7 +142,6 @@ class ActionValidateCity(Action):
         loc = tracker.get_slot('location')
         print("Checking city: ", loc)
         if not loc or (loc.lower() not in cities):
-            dispatcher.utter_message("We do not operate in that area yet.")
             return [SlotSet('location', None)]
 
         return [SlotSet('location', loc.lower())]
@@ -158,8 +155,6 @@ class ActionValidateCuisine(Action):
         cuisine = tracker.get_slot('cuisine')
         print("Checking cuisine: ", cuisine)
         if not cuisine or (cuisine.lower() not in cuisines_dict):
-            dispatcher.utter_message(
-                "The selected cuisine is not valid. Please select a valid cuisine")
             return [SlotSet('cuisine', None)]
 
         return [SlotSet('cuisine', cuisine.lower())]
@@ -173,8 +168,6 @@ class ActionValidatePrice(Action):
         price = tracker.get_slot('price')
         print("Checking price: ", price)
         if not price or (price.lower() not in price_dict):
-            dispatcher.utter_message(
-                "This price range is not supported. Please enter the correct price range.")
             return [SlotSet('price', None)]
 
         return [SlotSet('price', price.lower())]
@@ -195,8 +188,6 @@ class ActionValidateRequestData(Action):
         if loc and cuisine and price:
             return [SlotSet('is_valid_search_request', True)]
         else:
-            dispatcher.utter_message(
-                "We can't search restaurant with these details. Please try again.")
             return [SlotSet('is_valid_search_request', False)]
 
 

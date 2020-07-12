@@ -1,14 +1,3 @@
-## Search restaurant with invalid city
-* greet
-    - utter_greet
-* restaurant_search{"cuisine": "mexican", "location": "ooty"}
-    - slot{"cuisine": "mexican"}
-    - slot{"location": "ooty"}
-    - action_validate_city
-    - slot{"location": null}
-    - utter_goodbye
-    - action_restart
-
 ## Valid data one by one followed by sending email
 * greet
     - utter_greet
@@ -167,6 +156,7 @@
     - slot{"location": "bhopal"}
     - action_validate_cuisine
     - slot{"cuisine": null}
+    - utter_wrong_cuisine
     - utter_ask_cuisine
 * notify{"cuisine": "South Indian"}
     - slot{"cuisine": "South Indian"}
@@ -198,6 +188,7 @@
     - slot{"location": "Munnar"}
     - action_validate_city
     - slot{"location": null}
+    - utter_wrong_location
     - utter_ask_location
 * restaurant_search{"location": "Rajkot"}
     - slot{"location": "Rajkot"}
@@ -244,6 +235,7 @@
     - slot{"price": "600-800"}
     - action_validate_price
     - slot{"price": null}
+    - utter_wrong_price
     - utter_ask_price
 * notify{"price": "moderate"}
     - slot{"price": "moderate"}
@@ -354,6 +346,7 @@
     - action_validate_email
     - slot{"emailid": null}
     - slot{"is_valid_email": false}
+    - utter_wrong_email
     - utter_ask_email
 * send_email{"emailid": "ashwanikumar04@gmail.com"}
     - slot{"emailid": "ashwanikumar04@gmail.com"}
@@ -375,6 +368,7 @@
     - slot{"location": "Rishikesh"}
     - action_validate_city
     - slot{"location": null}
+    - utter_wrong_location
     - utter_ask_location
 * restaurant_search{"location": "prayagraj"}
     - slot{"location": "prayagraj"}
@@ -423,6 +417,7 @@
     - slot{"location": "nagpur"}
     - action_validate_cuisine
     - slot{"cuisine": null}
+    - utter_wrong_cuisine
     - utter_ask_cuisine
 * notify{"cuisine": "chinese"}
     - slot{"cuisine": "chinese"}
@@ -487,7 +482,7 @@
     - utter_goodbye
     - action_restart
 
-## interactive_story_1
+## valid search with no data
 * restaurant_search{"location": "Jammu"}
     - slot{"location": "Jammu"}
     - action_validate_city
@@ -510,5 +505,51 @@
     - slot{"price": null}
     - slot{"is_valid_search_request": null}
     - slot{"is_data_found": false}
+    - utter_goodbye
+    - action_restart
+
+## Search with price range wrong followed by correct
+* greet
+    - utter_greet
+* restaurant_search{"price": "within 1000"}
+    - slot{"price": "within 1000"}
+    - action_validate_price
+    - slot{"price": null}
+    - utter_wrong_price
+    - utter_ask_price
+* restaurant_search{"price": "moderate"}
+    - slot{"price": "moderate"}
+    - action_validate_price
+    - slot{"price": "moderate"}
+    - utter_ask_location
+* notify{"location": "Goa"}
+    - slot{"location": "Goa"}
+    - utter_ask_cuisine
+* notify{"cuisine": "Italian"}
+    - slot{"cuisine": "Italian"}
+    - action_validate_cuisine
+    - slot{"cuisine": "italian"}
+    - action_validate_request_data
+    - slot{"is_valid_search_request": true}
+    - action_search_restaurants
+    - slot{"location": null}
+    - slot{"cuisine": null}
+    - slot{"price": null}
+    - slot{"is_data_found": true}
+    - slot{"is_valid_search_request": null}
+    - slot{"email_body": "Caravela Cafe and Bistro in Caravela Homestay, House 27, 31st January Road, Panaji, Goa has been rated 4.4 with price for two as 700.\n\nDa Tita's in Majorda Nuvem Road, Majorda, Goa has been rated 4.4 with price for two as 600.\n\nAJ's in House 1336, K.K. White House, Don Bosco Road, Murida, Fatorda, Margao, Goa has been rated 4.4 with price for two as 500.\n\nMagic Italy in Palolem Road, Palolem, Goa has been rated 4.4 with price for two as 700.\n\nRoger's in Benaulim Beach, Benaulim, Goa has been rated 4.3 with price for two as 700.\n\nPiccola Roma in Chapora Road, Near Petrol Pump, Vagator, Goa has been rated 4.1 with price for two as 700.\n\nCremeux Cafe & Bistro in 12/17, 1st Floor, MG Road, Panaji, Goa has been rated 4.1 with price for two as 600.\n\nLa Cucina in 749, Morjim, Goa has been rated 4.1 with price for two as 600.\n\nPizza Hut in 1/147/A, Gaura Vaddo, Calangute, Goa has been rated 4.0 with price for two as 600.\n\nDomino's Pizza in 10-11, Old Municipal Building, 18th June Road, Panaji, Goa has been rated 4.0 with price for two as 400."}
+    - utter_ask_for_result_email
+* affirm
+    - utter_ask_email
+* send_email{"emailid": "ashwanikumar04@gmail.com"}
+    - slot{"emailid": "ashwanikumar04@gmail.com"}
+    - action_validate_email
+    - slot{"emailid": "ashwanikumar04@gmail.com"}
+    - slot{"is_valid_email": true}
+    - action_send_email
+    - slot{"emailid": null}
+    - slot{"email_body": null}
+    - slot{"is_data_found": null}
+    - slot{"is_valid_email": null}
     - utter_goodbye
     - action_restart
