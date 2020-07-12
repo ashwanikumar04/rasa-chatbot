@@ -14,6 +14,12 @@
 - helooooo
 - Hello anyone there?
 - morning
+- hello there
+- Hello there
+- Good morning
+- Hi
+- hi there!!!!!
+- howddy
 
 ## intent:affirm
 - yes
@@ -36,6 +42,8 @@
 - yea, please do
 - yep, send
 - yea sure
+- sure
+- yes please
 
 ## intent:goodbye
 - bye
@@ -65,6 +73,8 @@
 - nevermind
 - not now
 - no, I do not want the email now
+- not this time
+- Not this time
 
 ## intent:restaurant_search
 - i'm looking for a place to eat
@@ -140,6 +150,29 @@
 - somewhere in [noida](location)
 - hi, suggest some place in [Allahabad]{"entity": "location", "value": "prayagraj"}
 - suggest some place to eat
+- Looking for some good restaurants
+- looking for some good restaurants
+- I am looking for [maxican]{"entity": "cuisine", "value": "mexican"} restaurant in the budget [more than 700]{"entity": "price", "value": "expensive"}
+- somewhere in [Bombay]{"entity": "location", "value": "mumbai"}
+- Looking for some restaurants
+- Looking for [italian](cuisine) restaurant in range [more than 700]{"entity": "price", "value": "expensive"}
+- I am looking for restaurants in [delhi](location) within [300-700]{"entity": "price", "value": "moderate"} range
+- Will you help me in finding good [north indian](cuisine) restaurant in [Mysore](location) with budget of [>700]{"entity": "price", "value": "expensive"}
+- Suggest some [french](cuisine) restaurants in [Bhopal](location)
+- Suggest some good restaurants in [Munnar](location)
+- Oh Sorry, in [Rajkot](location)
+- I am hungary and looking for restaurantt suggestions in [Madras]{"entity": "location", "value": "Chennai"}
+- Looking for [american](cuisine) restaurant in [Asansol](location)
+- Looking for good restaurants
+- within range [300 to 700]{"entity": "price", "value": "moderate"}
+- suggest best [north indian](cuisine) outlets for dinner
+- [moderate](price)
+- Can you suggest some good restaurant in [Rishikesh](location)?
+- Some me in [Allahabad]{"entity": "location", "value": "prayagraj"}
+- I am looking for [thaai](cuisine) restaurant in [Nagpur](location)
+- good restaurants in [Solapur](location) with budget of [300-700]{"entity": "price", "value": "moderate"}
+- Hi looking for restaurants in [Jammu](location)
+- [within 300]{"entity": "price", "value": "economic"}
 
 ## intent:send_email
 - kindly send email to [xyz@gmail.com](emailid)
@@ -167,6 +200,15 @@
 - send it to [ashwani.kumar04@gmaill.com](emailid)
 - [deepak.4ev@gmail.com](emailid)
 - please send it to [ashwani.kumar.04@gmail.com](emailid)
+- [ashwanikumar04@gmail.com](emailid)
+- please send to [ashwanikumar04@gmail.com](emailid)
+- send it to [ashwanikumar04@gmail.com](emailid)
+- here you go [deepak.4ev@gmail.com](emailid)
+- Sure, mail me at [deepak.4ev@gmail.com](emailid)
+- my email id ashwani@.com
+- oh sorry, here it is [ashwanikumar04@gmail.com](emailid)
+- yes send it to [deepak.4ev@gmail.com](emailid)
+- send it too [ashwani.kumar04@gmail.com](emailid)
 
 ## intent:notify
 - [South Indian](cuisine)
@@ -218,8 +260,20 @@
 - [begaluraruad](location)
 - [bengaluru]{"entity": "location", "value": "bangalore"}
 - [chinease](cuisine)
-- [Chinese]{"entity": "cuisine", "value": "chinese"}
 - approx [300-700]{"entity": "price", "value": "moderate"}
+- I will prefer [chineese]{"entity": "cuisine", "value": "chinese"}
+- [300-700]{"entity": "price", "value": "moderate"} range
+- [<300]{"entity": "price", "value": "economic"}
+- anywhere in [Puna]{"entity": "location", "value": "pune"}
+- [american](cuisine)
+- [600-800](price)
+- [approx 700]{"entity": "price", "value": "moderate"}
+- [Purulia](location)
+- economic
+- I will prefer [chines]{"entity": "cuisine", "value": "chinese"}
+- [>700]{"entity": "price", "value": "expensive"}
+- [Nellore](location)
+- [Mexican](cuisine)
 
 ## synonym:2
 - couple
@@ -277,8 +331,8 @@
 - 200
 - 100
 - cheaper
-- lesser than 300
 - <300
+- lesser than 300
 - low cost
 - lower budget
 
@@ -286,13 +340,13 @@
 - high budget
 - higher budget
 - beach side
-- 800
 - more than 700
+- >700
+- 800
 - more than Rs. 700
 - min 700
 - expensive
 - higher than 700
-- >700
 - high end
 - lavish
 - roof top
@@ -309,6 +363,7 @@
 - 300 to 700
 - within 700
 - 300-700
+- approx 700
 - Rs. 300 to 700
 - mid
 - mid range

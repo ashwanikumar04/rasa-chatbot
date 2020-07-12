@@ -1,9 +1,12 @@
 actions:
+- action_default_fallback
 - action_search_restaurants
 - action_send_email
 - action_validate_city
 - action_validate_cuisine
 - action_validate_email
+- action_validate_price
+- action_validate_request_data
 - utter_ask_cuisine
 - utter_ask_email
 - utter_ask_for_result_email
@@ -22,12 +25,12 @@ entities:
 - people
 - price
 intents:
-- send_email
-- restaurant_search
-- affirm
-- greet
 - notify
+- restaurant_search
+- greet
 - deny
+- send_email
+- affirm
 - goodbye
 - stop
 - out_of_scope
@@ -70,7 +73,7 @@ responses:
       title: more than 700 for 2 people
     text: what price range are you looking for?
   utter_default:
-  - text: i cannot understand
+  - text: I did not understand the previous response, please be more specific.
   utter_goodbye:
   - text: goodbye
   - text: Bye-bye
@@ -87,16 +90,31 @@ session_config:
   session_expiration_time: 60
 slots:
   cuisine:
-    type: text
+    type: categorical
+    values:
+    - chinese
+    - north indian
+    - south indian
+    - mexican
+    - american
+    - italian
+    - __other__
   email_body:
-    type: text
+    type: unfeaturized
   emailid:
     type: text
-  is_valid_cuisine:
+  is_data_found:
     type: bool
-  is_valid_location:
+  is_valid_email:
+    type: bool
+  is_valid_search_request:
     type: bool
   location:
     type: text
   price:
-    type: text
+    type: categorical
+    values:
+    - economic
+    - moderate
+    - expensive
+    - __other__

@@ -12,3 +12,5 @@ python -m spacy link en_core_web_md en
 
 
 Used http://gamon.webfactional.com/regexnumericrangegenerator/ to generate range regex
+
+https://forum.rasa.com/t/using-buttons-and-selecting-them-in-interactive-learning/3920/8
