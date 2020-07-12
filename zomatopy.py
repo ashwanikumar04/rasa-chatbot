@@ -300,12 +300,12 @@ class Zomato:
         lon = d1["location_suggestions"][0]["longitude"]
         response_list = []
         for start in range(0, 120, 20):
-            print("Starting: ", start+1)
             search_result, has_more = self.getRestaurant(
                 cuisine, lat, lon, start, price, count - len(response_list))
             response_list.extend(search_result)
             if not has_more:
                 break
+        print("Returning {0} restaurants".format(len(response_list)))
         return response_list
 
     def getRestaurant(self, cuisine, lat, lon, start, price, count):

@@ -11,6 +11,7 @@ from email.message import EmailMessage
 import smtplib
 import ssl
 import os
+import re
 port = 465  # For SSL
 password = "rasa@2020"
 
@@ -19,6 +20,8 @@ fh = open('data/cities.txt')
 for line in fh:
     cities.add(line.strip().lower())
 fh.close()
+
+email_pattern = re.compile(r"(\w+[.|\w])*@(\w+[.])*\w+")
 
 cuisines_dict = {'mexican': 73, 'chinese': 25, 'american': 1,
                  'italian': 55,  'north indian': 50, 'south indian': 85}
@@ -39,18 +42,22 @@ class ActionSearchRestaurants(Action):
         cuisine = tracker.get_slot('cuisine')
         price = tracker.get_slot('price')
         restaurant_list = []
+        print("Location: {} ", loc)
+        print("Cuisine: {} ", cuisine)
+        print("price: {} ", price)
         try:
             restaurant_list = zomato.getTopRestaurants(
                 loc, str(cuisines_dict.get(cuisine)), price_dict[price])
         except:
             dispatcher.utter_message(
                 "Sorry, we were not able to find the restaurants. Please try again")
-            return [SlotSet('location', None), SlotSet('cuisine', None), SlotSet('price', None)]
+            return [SlotSet('location', None), SlotSet('cuisine', None), SlotSet('price', None), SlotSet('is_valid_cuisine', None), SlotSet('is_valid_location', None)]
 
         if len(restaurant_list) == 0:
+            print("No results to return")
             response = "Sorry, we were not able to find any restaurant with this criteria."
-            dispatcher.utter_message("-----"+response)
-            return [SlotSet('location', None), SlotSet('cuisine', None), SlotSet('price', None)]
+            dispatcher.utter_message(response)
+            return [SlotSet('location', None), SlotSet('cuisine', None), SlotSet('price', None), SlotSet('is_valid_cuisine', None), SlotSet('is_valid_location', None)]
         else:
             user_response_list = []
             for restaurant in restaurant_list[:5]:
@@ -63,9 +70,25 @@ class ActionSearchRestaurants(Action):
                 restaurant_details = '{0} in {1} has been rated {2} with price for two as {3}.'.format(
                     restaurant['name'], restaurant['address'], restaurant['rating'], restaurant["average_cost_for_two"])
                 email_body_list.append(restaurant_details)
+            dispatcher.utter_message(
+                "Here are some of the best match restaurants:\n\n")
+            dispatcher.utter_message("\n\n".join(user_response_list))
+            return [SlotSet('location', None), SlotSet('cuisine', None), SlotSet('price', None), SlotSet('is_valid_cuisine', None), SlotSet('is_valid_location', None), SlotSet('email_body', "\n\n".join(email_body_list))]
 
-            dispatcher.utter_message("-----"+"\n".join(user_response_list))
-            return [SlotSet('location', loc), SlotSet('cuisine', cuisine), SlotSet('price', price), SlotSet('email_body', "\n".join(email_body_list))]
+
+class ActionValidateEmail(Action):
+    def name(self):
+        return 'action_validate_email'
+
+    def run(self, dispatcher, tracker, domain):
+        email = tracker.get_slot('emailid')
+        print('email', email)
+        if(email_pattern.match(email)):
+            return [SlotSet('emailid', email)]
+        else:
+            dispatcher.utter_message(
+                "The email is not valid, please enter valid email id.")
+            return [SlotSet('emailid', None)]
 
 
 class ActionSendEmail(Action):
@@ -81,13 +104,17 @@ class ActionSendEmail(Action):
         msg['Subject'] = 'Top restaurant from Zomato'
         msg['From'] = 'rasabot20@gmail.com'
         msg['To'] = email
-
-        msg.set_content(email_body)
-        with smtplib.SMTP_SSL('smtp.gmail.com', port) as smtp:
-            smtp.login('rasabot20@gmail.com', password)
-            smtp.send_message(msg)
-        dispatcher.utter_message("Restaurant details have been sent.")
-        return [SlotSet('emailid', email), SlotSet('email_body', None)]
+        try:
+            msg.set_content(email_body)
+            with smtplib.SMTP_SSL('smtp.gmail.com', port) as smtp:
+                smtp.login('rasabot20@gmail.com', password)
+                smtp.send_message(msg)
+            dispatcher.utter_message("Restaurant details have been sent.")
+            return [SlotSet('emailid', None), SlotSet('email_body', None)]
+        except:
+            dispatcher.utter_message(
+                "Sorry, we were not able to end the email Please try again")
+            return [SlotSet('emailid', email), SlotSet('email_body', email_body)]
 
 
 class ActionValidateCity(Action):
@@ -96,9 +123,9 @@ class ActionValidateCity(Action):
 
     def run(self, dispatcher, tracker, domain):
         loc = tracker.get_slot('location')
-        if(loc.lower() not in cities):
+        if not loc or (loc.lower() not in cities):
             dispatcher.utter_message("We do not operate in that area yet.")
-            return [SlotSet('location', None), SlotSet('is_valid_location', False)]
+            return [SlotSet('location', None), SlotSet('is_valid_location', None)]
 
         return [SlotSet('location', loc.lower()), SlotSet('is_valid_location', True)]
 
@@ -110,9 +137,9 @@ class ActionValidateCuisine(Action):
     def run(self, dispatcher, tracker, domain):
         cuisine = tracker.get_slot('cuisine')
         print("Checking cuisine: ", cuisine)
-        if(cuisine.lower() not in cuisines_dict):
+        if not cuisine or (cuisine.lower() not in cuisines_dict):
             dispatcher.utter_message(
                 "The selected cuisine is not valid. Please select a valid cuisine")
-            return [SlotSet('cuisine', None), SlotSet('is_valid_cuisine', False)]
+            return [SlotSet('cuisine', None), SlotSet('is_valid_cuisine', None)]
 
         return [SlotSet('cuisine', cuisine.lower()), SlotSet('is_valid_cuisine', True)]

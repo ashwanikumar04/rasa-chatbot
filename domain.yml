@@ -3,6 +3,7 @@ actions:
 - action_send_email
 - action_validate_city
 - action_validate_cuisine
+- action_validate_email
 - utter_ask_cuisine
 - utter_ask_email
 - utter_ask_for_result_email
@@ -21,13 +22,13 @@ entities:
 - people
 - price
 intents:
-- notify
-- restaurant_search
-- greet
 - send_email
-- goodbye
+- restaurant_search
 - affirm
+- greet
+- notify
 - deny
+- goodbye
 - stop
 - out_of_scope
 responses:
@@ -58,7 +59,7 @@ responses:
   utter_ask_howcanhelp:
   - text: how can I help you?
   utter_ask_location:
-  - text: In what location?
+  - text: In which city are you looking for the restaurants?
   utter_ask_price:
   - buttons:
     - payload: economic
@@ -71,7 +72,7 @@ responses:
   utter_default:
   - text: i cannot understand
   utter_goodbye:
-  - text: goodbye :(
+  - text: goodbye
   - text: Bye-bye
   utter_greet:
   - text: hey there! How may i help you
@@ -91,8 +92,6 @@ slots:
     type: text
   emailid:
     type: text
-  is_valid_city:
-    type: bool
   is_valid_cuisine:
     type: bool
   is_valid_location:
@@ -100,9 +99,4 @@ slots:
   location:
     type: text
   price:
-    type: categorical
-    values:
-    - economic
-    - moderate
-    - expensive
-    - __other__
+    type: text
