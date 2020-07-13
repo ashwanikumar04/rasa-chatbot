@@ -89,6 +89,8 @@ responses:
   - text: The email is not valid, please provide valid email id.
   utter_wrong_location:
   - text: We do not operate in that area yet.
+  utter_wrong_price:
+  - text: This price bugdet is not supported. Please provide valid price range.
 session_config:
   carry_over_slots_to_new_session: true
   session_expiration_time: 60

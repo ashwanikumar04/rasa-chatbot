@@ -27,6 +27,8 @@
     - slot{"is_valid_search_request": null}
     - slot{"email_body": "Smogrill in Opposite Kayla Spa N Saloon, Jaladarshini Layout, New BEL Road, Bangalore has been rated 4.5 with price for two as 150.\n\n2 Mum's Kitchen in Marathahalli, Bangalore has been rated 4.4 with price for two as 200.\n\nAsha Tiffins in 1170, 5th Main Road, Sector 7, HSR, Bangalore has been rated 4.3 with price for two as 200."}
     - utter_ask_for_result_email
+* affirm
+    - utter_ask_email
 * send_email{"emailid": "ashwanikumar04@gmail.com"}
     - slot{"emailid": "ashwanikumar04@gmail.com"}
     - action_validate_email
@@ -67,6 +69,7 @@
     - slot{"email_body": "Level 5 Bistro and Bar in Survey 1365, 5th Floor, House of Nosh, Above Kalinga Veg Gourmet Kitchen, Opposite Mehendale Garage, Gulawani Maharaj Path, Erandwane, Pune has been rated 4.8 with price for two as 1200.\n\nLe Plaisir in Survey 759/125, Rajkamal, Opposite Kelkar Eye Hospital, Prabhat Road, Deccan Gymkhana, Pune has been rated 4.7 with price for two as 1000.\n\nGong in Shop 22/23, Balewadi High Street, Cummins India Office Campus, Baner- Balewadi Link Road, Baner, Pune has been rated 4.7 with price for two as 1700.\n\nCafe Paashh in Plot E1 & E2, Survey 211/2, Near Orange IVY School, Hiremath Park, Kalyani Nagar, Pune has been rated 4.7 with price for two as 1500.\n\nToit in Final Plot 88, Metro Compound, Besides Bishop Co-Ed School, Kalyani Nagar, Pune has been rated 4.7 with price for two as 1500.\n\nBarbeque Nation in Solitaire Building, Opposite Shree Hospital, Kalyani Nagar, Pune has been rated 4.7 with price for two as 1700.\n\nThe Urban Foundry in Shop 1, Balewadi High Street, Cummins India Office Campus, Baner-Balewadi Link Road, Baner, Pune has been rated 4.6 with price for two as 1600.\n\nEffingut in Shop 4, Deron Heights, Near Ranka Jewellers, Baner, Pune has been rated 4.6 with price for two as 2000.\n\nIndependence Brewing Company in 79/1, Zero One Complex, Pingale Vasti, Mundhwa, Pune has been rated 4.6 with price for two as 2300.\n\nFlechazo in 165, 3rd Floor, Vantagio, Near Silver Sports Club, Wakad, Pune has been rated 4.6 with price for two as 1400."}
     - utter_ask_for_result_email
 * affirm
+    - utter_ask_email
 * send_email{"emailid": "deepak.4ev@gmail.com"}
     - slot{"emailid": "deepak.4ev@gmail.com"}
     - action_validate_email
@@ -133,6 +136,8 @@
     - slot{"is_valid_search_request": null}
     - slot{"email_body": "Spring - Radisson Blu Plaza in Radisson Blu Plaza, 1, MG Road, Ittige Gudu, Mysore has been rated 4.5 with price for two as 1700.\n\nJalpaan Dining Saga in 366, 2nd & 3rd Floor, Near Ramaswamy Circle, Chamaraja Mohalla, Chamrajpura, Mysore has been rated 4.4 with price for two as 900.\n\nKapoor's Cafe in 3132, D 27 & 3132/A, D 27/A, Kalidasa Road, VV Mohalla, Jayalakhsmipuram, Mysore has been rated 4.4 with price for two as 800.\n\nKapoor's Cafe in H/8C, Kantharaja Urs Road, Bogadi Sharadevi Nagar, Chamrajpura, Mysore has been rated 4.4 with price for two as 800.\n\nGufha Restaurant in 35/A, Pai Hotels, Bangalore Nilgiri Road, Doora, Mysore has been rated 4.3 with price for two as 1000.\n\nSepoy's Phirangi in Opp JSS Hospital,  MG Road, Chamrajpura, Mysore has been rated 4.2 with price for two as 1000.\n\nBig Chicken in 331/A, Loyal World Building, Adjacent To St Josephs Hospital, Bannimantap, Mysore has been rated 4.1 with price for two as 1000.\n\nThe Barge Restaurant in Plot 440A, Hebbal Industrial Area, Near Infosys Campus, Vijay Nagar, Mysore has been rated 4.1 with price for two as 1500.\n\nWhite Lantern in 9/A, 3rd Block, Gokulam Main Road, Jayalakshmipuram, Mysuru, Karnataka has been rated 4.1 with price for two as 800.\n\nPurple Haze in 129-131, High Tension Double Road, Mahadeswara Badavane, 2nd Stage, Vijay Nagar, Mysore has been rated 4.1 with price for two as 1200."}
     - utter_ask_for_result_email
+* affirm
+    - utter_ask_email
 * send_email{"emailid": "deepak.4ev@gmail.com"}
     - slot{"emailid": "deepak.4ev@gmail.com"}
     - action_validate_email
@@ -394,6 +399,8 @@
     - slot{"is_valid_search_request": null}
     - slot{"email_body": "Sagar Ratna in 3/3, Hashimpur Road, Balson Crossing, Near Anand Bhawan, Tagore Town, Allahabad has been rated 4.5 with price for two as 800.\n\nOld School Cafe in 2nd Floor, 9-10 Tulsiani Grace, Civil Lines, Allahabad has been rated 4.5 with price for two as 1000.\n\nEl Chico Restaurant in 142A, 32, Mahatma Gandhi, Civil Lines, Allahabad has been rated 4.4 with price for two as 800.\n\nEDEN by Connoisseur in Hotel Samrat, Civil Lines, Allahabad has been rated 4.4 with price for two as 1000.\n\nPind Balluchi in 48/8, Stratchy Road, Civil Lines, Allahabad has been rated 4.4 with price for two as 1000.\n\nBerco's in 17C, 0-1, Stretchy Road, Civil Lines, Allahabad has been rated 4.2 with price for two as 1600.\n\nHotel Kanha Shyam in Allahabad HO, Civil Lines, Allahabad has been rated 4.1 with price for two as 900.\n\nKohinoor Restaurant in LG1 - LG2, Lower Ground Floor, Vinayak Tower, MG Marg, Civil Lines, Allahabad has been rated 4.1 with price for two as 800.\n\nMoti Mahal Delux in Second Floor, Vinayak City Center Mall, SP Marg, Civil Lines, Allahabad has been rated 4.0 with price for two as 850.\n\nMoti Mahal Delux Tandoori Trail in Shop 18A, Second Floor, Sardar Patel Marg, Above HDFC Bank, Civil Lines, Allahabad has been rated 3.9 with price for two as 800."}
     - utter_ask_for_result_email
+* affirm
+    - utter_ask_email
 * send_email{"emailid": "deepak.4ev@gmail.com"}
     - slot{"emailid": "deepak.4ev@gmail.com"}
     - action_validate_email
