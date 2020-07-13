@@ -76,6 +76,7 @@
 - no, I do not want the email now
 - not this time
 - Not this time
+- never mind
 
 ## intent:restaurant_search
 - i'm looking for a place to eat
@@ -178,6 +179,8 @@
 - suggest some restaurants [<1000](price)
 - suggest some restaurant
 - Suggest [mexican](cuisine) restaurant for dinner
+- suggest me some restaurants
+- suggest me restaurant
 - [moderate](price)
 
 ## intent:send_email
@@ -215,6 +218,8 @@
 - oh sorry, here it is [ashwanikumar04@gmail.com](emailid)
 - yes send it to [deepak.4ev@gmail.com](emailid)
 - send it too [ashwani.kumar04@gmail.com](emailid)
+- here is [ashwanikumar04@gmail.com](emailid)
+- here is [ashwanikumar04@gmail.com](emailid)
 
 ## intent:notify
 - [South Indian](cuisine)
@@ -282,6 +287,8 @@
 - [Goa](location)
 - [Jamnagar](location)
 - [kakinada](location)
+- [bengaluru]{"entity": "location", "value": "bangalore"}
+- [Italian](cuisine)
 
 ## synonym:2
 - couple

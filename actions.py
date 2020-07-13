@@ -80,10 +80,22 @@ class ActionSearchRestaurants(Action):
                 user_response_list.append(restaurant_details)
 
             email_body_list = []
-            for restaurant in restaurant_list:
-                restaurant_details = '{0} in {1} has been rated {2} with price for two as {3}.'.format(
-                    restaurant['name'], restaurant['address'], restaurant['rating'], restaurant["average_cost_for_two"])
+
+            restaurant_item_template = '''
+                <h3>Restaurant #{4}</h3>
+                <ul>
+                    <li>Restaurant Name: {0}</li>
+                    <li> Restaurant locality address: {1}</li>
+                    <li> Average budget for two people: Rs. {2}</li>
+                    <li> Zomato user rating: {3}</li>
+               </ul>
+            '''
+
+            for count, restaurant in enumerate(restaurant_list, start=1):
+                restaurant_details = restaurant_item_template.format(
+                    restaurant['name'], restaurant['address'], restaurant["average_cost_for_two"], restaurant['rating'], count)
                 email_body_list.append(restaurant_details)
+            email_body = '<ul>' + "<br/>".join(email_body_list) + '</ul>'
             dispatcher.utter_message(
                 "Here are some of the best match restaurants:\n\n")
             dispatcher.utter_message("\n\n".join(user_response_list))
@@ -92,7 +104,7 @@ class ActionSearchRestaurants(Action):
                     SlotSet('price', None),
                     SlotSet('is_data_found', True),
                     SlotSet('is_valid_search_request', None),
-                    SlotSet('email_body', "\n\n".join(email_body_list))]
+                    SlotSet('email_body', email_body)]
 
 
 class ActionSendEmail(Action):
@@ -109,7 +121,7 @@ class ActionSendEmail(Action):
         msg['From'] = 'rasabot20@gmail.com'
         msg['To'] = email
         try:
-            msg.set_content(email_body)
+            msg.set_content(email_body, subtype='html')
             with smtplib.SMTP_SSL('smtp.gmail.com', port) as smtp:
                 smtp.login('rasabot20@gmail.com', password)
                 smtp.send_message(msg)

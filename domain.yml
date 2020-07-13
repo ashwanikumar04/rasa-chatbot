@@ -27,12 +27,12 @@ entities:
 - people
 - price
 intents:
-- notify
+- affirm
 - greet
+- send_email
+- notify
 - restaurant_search
 - deny
-- affirm
-- send_email
 - goodbye
 - stop
 - out_of_scope
@@ -60,7 +60,7 @@ responses:
       title: Yes
     - payload: no
       title: No
-    text: Do you want the results in the emails?
+    text: Do you want the top 10 results in the email?
   utter_ask_howcanhelp:
   - text: how can I help you?
   utter_ask_location:

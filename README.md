@@ -16,3 +16,30 @@ Used http://gamon.webfactional.com/regexnumericrangegenerator/ to generate range
 https://forum.rasa.com/t/using-buttons-and-selecting-them-in-interactive-learning/3920/8
 
 All the dependencies used for the bots are in `requirements.txt`
+
+
+## Commands
+
+To Train nlu
+
+```
+rasa train nlu
+```
+
+To Train
+
+```
+rasa train
+```
+
+
+To run actions
+
+```
+rasa run actions
+```
+
+To test
+```
+rasa test
+```

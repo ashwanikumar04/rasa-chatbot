@@ -1,5 +1,5 @@
-#### This file contains tests to evaluate that your bot behaves as expected.
-#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/user-guide/testing-your-assistant/
+#### Some tests to test the bot
+#### More info for testing at https://rasa.com/docs/rasa/user-guide/testing-your-assistant/
 
 * greet: Hi
   - utter_greet
@@ -10,7 +10,7 @@
   - action_validate_city
   - slot{"location": "bangalore"}
   - utter_ask_cuisine
-* notify: something in [chineese]{"entity": "cuisine", "value": "chinese"}
+* restaurant_search: something in [chineese]{"entity": "cuisine", "value": "chinese"}
   - slot{"cuisine": "chinese"}
   - action_validate_cuisine
   - slot{"cuisine": "chinese"}
