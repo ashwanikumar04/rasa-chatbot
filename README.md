@@ -5,6 +5,7 @@
 
 ```
 python3 -m venv --system-site-packages ./venv
+source ./venv/bin/activate
 pip install rasa-x --extra-index-url https://pypi.rasa.com/simple
 pip install rasa[spacy]
 python -m spacy download en_core_web_md
@@ -21,17 +22,6 @@ All the dependencies used for the bots are in `requirements.txt`
 
 ## Commands
 
-To Train nlu
-
-```
-rasa train nlu
-```
-
-To Train core
-
-```
-rasa train core
-```
 
 To Train
 
