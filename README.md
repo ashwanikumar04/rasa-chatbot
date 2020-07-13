@@ -1,5 +1,6 @@
 # rasa-chatbot
 
+## Python version 3.7.4
 
 
 ```
@@ -24,6 +25,12 @@ To Train nlu
 
 ```
 rasa train nlu
+```
+
+To Train core
+
+```
+rasa train core
 ```
 
 To Train
