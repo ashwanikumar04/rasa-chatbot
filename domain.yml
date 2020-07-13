@@ -27,11 +27,11 @@ entities:
 - people
 - price
 intents:
+- restaurant_search
+- notify
 - affirm
 - greet
 - send_email
-- notify
-- restaurant_search
 - deny
 - goodbye
 - stop

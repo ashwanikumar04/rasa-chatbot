@@ -15,7 +15,16 @@ python -m spacy link en_core_web_md en
 
 Used http://gamon.webfactional.com/regexnumericrangegenerator/ to generate range regex
 
+
+Looks like there is sometime an issue with shell when selecting items from menu. For some weird reason the menu for price works in interactive mode but sometime it does not work in `shell`. Reference for the issue 
 https://forum.rasa.com/t/using-buttons-and-selecting-them-in-interactive-learning/3920/8
+
+
+
+
+So please test using custom messages.
+
+
 
 All the dependencies used for the bots are in `requirements.txt`
 

@@ -180,8 +180,7 @@
 - suggest some restaurant
 - Suggest [mexican](cuisine) restaurant for dinner
 - suggest me some restaurants
-- suggest me restaurant
-- [moderate](price)
+- Suggest me restaurant
 
 ## intent:send_email
 - kindly send email to [xyz@gmail.com](emailid)
@@ -219,7 +218,7 @@
 - yes send it to [deepak.4ev@gmail.com](emailid)
 - send it too [ashwani.kumar04@gmail.com](emailid)
 - here is [ashwanikumar04@gmail.com](emailid)
-- here is [ashwanikumar04@gmail.com](emailid)
+- send it to [ashwanikumar04@gmail.com](emailid)
 
 ## intent:notify
 - [South Indian](cuisine)
@@ -287,8 +286,10 @@
 - [Goa](location)
 - [Jamnagar](location)
 - [kakinada](location)
-- [bengaluru]{"entity": "location", "value": "bangalore"}
+- [Asansol](location)
 - [Italian](cuisine)
+- [<300]{"entity": "price", "value": "economic"}
+- [30000](price)
 
 ## synonym:2
 - couple

@@ -1,15 +1,9 @@
 {
-  "location": {
+  "people": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 77
-  },
-  "emailid": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 34
+    "support": 3
   },
   "cuisine": {
     "precision": 1.0,
@@ -17,34 +11,40 @@
     "f1-score": 1.0,
     "support": 58
   },
-  "people": {
+  "location": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 3
+    "support": 77
   },
   "price": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 98
+    "support": 99
+  },
+  "emailid": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 34
   },
   "micro avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 270
+    "support": 271
   },
   "macro avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 270
+    "support": 271
   },
   "weighted avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 270
+    "support": 271
   }
 }

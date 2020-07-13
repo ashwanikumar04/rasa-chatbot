@@ -621,3 +621,55 @@
     - slot{"is_data_found": false}
     - utter_goodbye
     - action_restart
+
+
+
+## interactive_story_1
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* notify{"location": "Asansol"}
+    - slot{"location": "Asansol"}
+    - action_validate_city
+    - slot{"location": "asansol"}
+    - utter_ask_cuisine
+* notify{"cuisine": "Italian"}
+    - slot{"cuisine": "Italian"}
+    - action_validate_cuisine
+    - slot{"cuisine": "italian"}
+    - utter_ask_price
+* notify{"price": null}
+    - slot{"price": null}
+    - action_validate_price
+    - slot{"price": null}
+    - utter_wrong_price
+    - utter_ask_price
+* notify{"price": "economic"}
+    - slot{"price": "economic"}
+    - action_validate_price
+    - slot{"price": "economic"}
+    - action_validate_request_data
+    - slot{"is_valid_search_request": true}
+    - action_search_restaurants
+    - slot{"location": null}
+    - slot{"cuisine": null}
+    - slot{"price": null}
+    - slot{"is_data_found": true}
+    - slot{"is_valid_search_request": null}
+    - slot{"email_body": "<ul>\n                <h3>Restaurant #1</h3>\n                <ul>\n                    <li>Restaurant Name: Grill n Bite</li>\n                    <li> Restaurant locality address: shop no-4, Mohini Tower, Shristinagar, Asansol, Asansol Locality, Asansol</li>\n                    <li> Average budget for two people: Rs. 200</li>\n                    <li> Zomato user rating: 4.3</li>\n               </ul>\n            <br/>\n                <h3>Restaurant #2</h3>\n                <ul>\n                    <li>Restaurant Name: Punjabi Rasoi</li>\n                    <li> Restaurant locality address: GT road, rambandhu talaw, asansol, Asansol Locality, Asansol</li>\n                    <li> Average budget for two people: Rs. 250</li>\n                    <li> Zomato user rating: 4.3</li>\n               </ul>\n            <br/>\n                <h3>Restaurant #3</h3>\n                <ul>\n                    <li>Restaurant Name: Minar Food Product</li>\n                    <li> Restaurant locality address: Fairdeal Market, Bastin Bazar, Opp South Traffic Guard., Asansol Locality, Asansol</li>\n                    <li> Average budget for two people: Rs. 150</li>\n                    <li> Zomato user rating: 4.1</li>\n               </ul>\n            <br/>\n                <h3>Restaurant #4</h3>\n                <ul>\n                    <li>Restaurant Name: Lips Slip</li>\n                    <li> Restaurant locality address: Jagnath Plaza, Ground Floor, Girls College Road, Burnpur, Asansol - 713325, Near Chitra Cinema, Asansol Locality, Asansol</li>\n                    <li> Average budget for two people: Rs. 200</li>\n                    <li> Zomato user rating: 4.1</li>\n               </ul>\n            <br/>\n                <h3>Restaurant #5</h3>\n                <ul>\n                    <li>Restaurant Name: Hindustan Cake Walk</li>\n                    <li> Restaurant locality address: Laxmi Narayan Avenue, GT Road(East), Ushagram, Asansol West Bengal, Asansol Locality, Asansol</li>\n                    <li> Average budget for two people: Rs. 150</li>\n                    <li> Zomato user rating: 4.1</li>\n               </ul>\n            <br/>\n                <h3>Restaurant #6</h3>\n                <ul>\n                    <li>Restaurant Name: Gupshup</li>\n                    <li> Restaurant locality address: 4th floor, galaxy mall, burnpur road, asansol, Asansol Locality, Asansol</li>\n                    <li> Average budget for two people: Rs. 260</li>\n                    <li> Zomato user rating: 3.9</li>\n               </ul>\n            <br/>\n                <h3>Restaurant #7</h3>\n                <ul>\n                    <li>Restaurant Name: Vikinah</li>\n                    <li> Restaurant locality address: H C L Road Rupnarayanpur Bazar, Salanpur Asansol, Asansol Locality, Asansol</li>\n                    <li> Average budget for two people: Rs. 0</li>\n                    <li> Zomato user rating: 3.9</li>\n               </ul>\n            <br/>\n                <h3>Restaurant #8</h3>\n                <ul>\n                    <li>Restaurant Name: Ganpati Meet and Eat</li>\n                    <li> Restaurant locality address: Radha Nagar Road, Opposite Galaxy Mall, Burnpur, Asansol, Asansol Locality, Asansol</li>\n                    <li> Average budget for two people: Rs. 0</li>\n                    <li> Zomato user rating: 3.8</li>\n               </ul>\n            <br/>\n                <h3>Restaurant #9</h3>\n                <ul>\n                    <li>Restaurant Name: Appy's Kichen</li>\n                    <li> Restaurant locality address: GT Road, Barakar, Asansol, Asansol Locality, Asansol</li>\n                    <li> Average budget for two people: Rs. 0</li>\n                    <li> Zomato user rating: 0</li>\n               </ul>\n            <br/>\n                <h3>Restaurant #10</h3>\n                <ul>\n                    <li>Restaurant Name: Pizza Xpress Pizzeria</li>\n                    <li> Restaurant locality address: Lower Chelidanga, Asansol, Asansol Locality, Asansol</li>\n                    <li> Average budget for two people: Rs. 0</li>\n                    <li> Zomato user rating: 0</li>\n               </ul>\n            </ul>"}
+    - utter_ask_for_result_email
+* affirm
+    - utter_ask_email
+* send_email{"emailid": "ashwanikumar04@gmail.com"}
+    - slot{"emailid": "ashwanikumar04@gmail.com"}
+    - action_validate_email
+    - slot{"emailid": "ashwanikumar04@gmail.com"}
+    - slot{"is_valid_email": true}
+    - action_send_email
+    - slot{"emailid": null}
+    - slot{"email_body": null}
+    - slot{"is_data_found": null}
+    - slot{"is_valid_email": null}
+    - utter_goodbye
+    - action_restart
