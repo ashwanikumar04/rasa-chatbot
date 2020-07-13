@@ -20,6 +20,7 @@
 - Hi
 - hi there!!!!!
 - howddy
+- holaaa
 
 ## intent:affirm
 - yes
@@ -173,8 +174,10 @@
 - good restaurants in [Solapur](location) with budget of [300-700]{"entity": "price", "value": "moderate"}
 - Hi looking for restaurants in [Jammu](location)
 - [within 300]{"entity": "price", "value": "economic"}
-- find me some restaurants [within 1000]{"entity": "price", "value": "within 1000"}
-- suggest some restaurants [<1000]{"entity": "price", "value": "<1000"}
+- find me some restaurants [within 1000](price)
+- suggest some restaurants [<1000](price)
+- suggest some restaurant
+- Suggest [mexican](cuisine) restaurant for dinner
 - [moderate](price)
 
 ## intent:send_email
@@ -212,7 +215,6 @@
 - oh sorry, here it is [ashwanikumar04@gmail.com](emailid)
 - yes send it to [deepak.4ev@gmail.com](emailid)
 - send it too [ashwani.kumar04@gmail.com](emailid)
-- send it to [ashwanikumar04@gmail.com](emailid)
 
 ## intent:notify
 - [South Indian](cuisine)
@@ -278,7 +280,8 @@
 - [>700]{"entity": "price", "value": "expensive"}
 - [Nellore](location)
 - [Goa](location)
-- [Italian](cuisine)
+- [Jamnagar](location)
+- [kakinada](location)
 
 ## synonym:2
 - couple

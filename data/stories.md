@@ -553,3 +553,64 @@
     - slot{"is_valid_email": null}
     - utter_goodbye
     - action_restart
+
+## interactive_story_1
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* notify{"location": "Jamnagar"}
+    - slot{"location": "Jamnagar"}
+    - action_validate_city
+    - slot{"location": "jamnagar"}
+    - utter_ask_cuisine
+* notify{"cuisine": "South Indian"}
+    - slot{"cuisine": "South Indian"}
+    - action_validate_cuisine
+    - slot{"cuisine": "south indian"}
+    - utter_ask_price
+* restaurant_search{"price": "moderate"}
+    - slot{"price": "moderate"}
+    - action_validate_price
+    - slot{"price": "moderate"}
+    - action_validate_request_data
+    - slot{"is_valid_search_request": true}
+    - action_search_restaurants
+    - slot{"location": null}
+    - slot{"cuisine": null}
+    - slot{"price": null}
+    - slot{"is_data_found": true}
+    - slot{"is_valid_search_request": null}
+    - slot{"email_body": "Imperial Blue Restaurant in Opp. Oshwal Hospital, Jamnagar, Digvijay Plot, Jamnagar. has been rated 4.6 with price for two as 300.\n\nBlack Pepper Restaurant in Shital Plot No 1, Near Hariya College, Jamnagar has been rated 4.5 with price for two as 500.\n\nHotel Aram in Hotel Aram, opp DKV college has been rated 4.4 with price for two as 500.\n\nVividh Food Zone in Digjam Circle, Khambhaliya Road, Jamnagar has been rated 4.4 with price for two as 400.\n\nHotel Keshwara's in Jamnagar Bypass Road, After Swaminarayan Temple, Jamnagar has been rated 4.3 with price for two as 300.\n\nVeer Restaurant in Ground Floor Vinayak Plaza Aerodrome Road, Mayur Nagar Jamnagar has been rated 4.3 with price for two as 600.\n\nZayka Restaurant in Nr Dominoz, Paras Society, Panchvati, Jamnagar has been rated 4.2 with price for two as 400.\n\nFriendz Dosa Centre in 11 Patel Colony, PN Marg, Jamnagar has been rated 4.1 with price for two as 300.\n\nKathiyawadi Dining Hall  in 3rd Floor, Khandelwala Complex, 12- Patel Colony, Bedi Bandar Road, Jamnagar has been rated 4.1 with price for two as 300.\n\nNew Zayka Restaurant in Opposite Nawanagar Bank, Ranjitsagar Road, Green City, Jamnagar has been rated 3.9 with price for two as 400."}
+    - utter_ask_for_result_email
+* deny
+    - utter_goodbye
+    - action_restart
+
+## interactive_story_1
+* greet
+    - utter_greet
+* restaurant_search{"cuisine": "mexican"}
+    - slot{"cuisine": "mexican"}
+    - action_validate_cuisine
+    - slot{"cuisine": "mexican"}
+    - utter_ask_location
+* notify{"location": "kakinada"}
+    - slot{"location": "kakinada"}
+    - action_validate_city
+    - slot{"location": "kakinada"}
+    - utter_ask_price
+* restaurant_search{"price": "moderate"}
+    - slot{"price": "moderate"}
+    - action_validate_price
+    - slot{"price": "moderate"}
+    - action_validate_request_data
+    - slot{"is_valid_search_request": true}
+    - action_search_restaurants
+    - slot{"location": null}
+    - slot{"cuisine": null}
+    - slot{"price": null}
+    - slot{"is_valid_search_request": null}
+    - slot{"is_data_found": false}
+    - utter_goodbye
+    - action_restart
