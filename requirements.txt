@@ -108,7 +108,7 @@ terminaltables==3.1.0
 thinc==7.0.8
 twilio==6.26.3
 tzlocal==2.1
-ujson==1.35
+ujson==5.2.0
 uvloop==0.14.0
 wasabi==0.7.0
 webexteamssdk==1.3
